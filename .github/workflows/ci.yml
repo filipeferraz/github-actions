@@ -3,24 +3,34 @@ on: push
 #  pull_request:
 #    branches:
 #      - develop
+#  push:
+#    branches:
+#      - develop
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: react-app
     steps:
       - uses: actions/checkout@v2
       - name: Use NodeJS
         uses: actions/setup-node@v1
         with:
           node-version: "12.x"
-      - run: |
-          cd react-app
-          npm ci
-      - run: |
-          cd react-app
-          npm run format:check
-      - run: |
-          cd react-app
-          npm test -- --coverage
+      - run: npm ci
+      - run: npm run format:check
+      - run: npm test -- --coverage
         env:
           CI: true
+      - name: Build Projects
+        if: github.event_name == 'push'
+        run: npm run build
+      - name: Deploy to Staging
+        if: github.event_name == 'push'
+        run: npx surge --project ./build --domain smiling-position.surge.sh
+        env:
+          SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+
