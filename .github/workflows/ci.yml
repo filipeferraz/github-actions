@@ -3,9 +3,11 @@ on: push
 #  pull_request:
 #    branches:
 #      - develop
+#      - main
 #  push:
 #    branches:
 #      - develop
+#      - main
 
 jobs:
   build:
@@ -48,6 +50,11 @@ jobs:
           path: react-app/build
       - uses: actions/download-artifact@v2
         if: github.event_name == 'push'
+      - name: Create a Release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Deploy to Staging
         if: github.event_name == 'push'
         run: npx surge --project ./build --domain smiling-position.surge.sh
