@@ -62,3 +62,4 @@ jobs:
           echo ${{ secrets.MULTILINE_FILE }} | base64 -d > file.txt
           cat file.txt
           md5sum file.txt
+          echo "Env: ${{ github.event.inputs.cluster_company }}" 
