@@ -1,4 +1,4 @@
-name: Create cluster
+name: 'Create cluster'
 on:
   workflow_dispatch:
     inputs:
