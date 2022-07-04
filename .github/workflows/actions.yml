@@ -11,6 +11,6 @@ jobs:
           who-to-greet: "World"
       - run: |
           echo "Time: ${{ steps.hello.outputs.time }}"
-          echo $MULTILINE_FILE > file.txt
+          echo $MULTILINE_FILE | base64 -d > file.txt
           cat file.txt
           md5sum file.txt
