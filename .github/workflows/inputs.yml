@@ -4,12 +4,12 @@ on:
     inputs:
       cluster_company:
         default: mipwise
-        description: Company name (mipwise)
+        description: 'Company name (Example: mipwise)'
         type: string
         required: true
       ingress_host:
         default: gke-test.mipwise.com
-        description: Host (gke-test.mipwise.com)
+        description: 'Host (Example: gke-test.mipwise.com)'
         type: string
         required: true
       support_user_email:
