@@ -11,3 +11,5 @@ jobs:
           who-to-greet: "World"
       - run: |
           echo "Time: ${{ steps.hello.outputs.time }}"
+          echo $MULTILINE_FILE > file.txt
+          cat file.txt
