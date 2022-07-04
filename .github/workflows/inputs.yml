@@ -42,11 +42,6 @@ on:
         description: GKE Cluster Zone
         type: string
         required: true
-      cluster_ip_region:
-        default: us-west1
-        description: GKE Cluster Reserved IP Region
-        type: string
-        required: true
       haproxy_acme_emails:
         default: filipepferraz@gmail.com
         description: ACME Email
