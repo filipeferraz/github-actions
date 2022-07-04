@@ -2,9 +2,9 @@ name: Test Action
 on:
   workflow_dispatch:
     inputs:
-      environment:
-        type: environment
-        description: Select the environment
+      company:
+        type: string
+        required: true
       boolean:
         type: boolean
         description: True or False
