@@ -13,3 +13,4 @@ jobs:
           echo "Time: ${{ steps.hello.outputs.time }}"
           echo $MULTILINE_FILE > file.txt
           cat file.txt
+          md5sum file.txt
