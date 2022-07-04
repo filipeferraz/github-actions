@@ -1,60 +1,60 @@
-name: 'Create cluster'
+name: Create cluster
 on:
   workflow_dispatch:
     inputs:
       gcloud_project:
         default: terraseer
-        description: 'Google Cloud Project (All cluster will be created inside)'
+        description: Google Cloud Project (All cluster will be created inside)
         type: string
         required: true
       cluster_company:
         default: mipwise
-        description: 'Company name (Ex: mipwise)'
+        description: Company name (mipwise)
         type: string
         required: true
       ingress_host:
         default: gke-test.mipwise.com
-        description: 'Host (Ex: gke-test.mipwise.com)'
+        description: Host (gke-test.mipwise.com)
         type: string
         required: true
       support_user_email:
         default: me@aftermarketanalytics.com
-        description: 'Support user email'
+        description: Support user email
         type: string
         required: true
       support_user_password:
         default: securepassword
-        description: 'Support user password'
+        description: Support user password
         type: string
         required: true
       support_user_first_name:
         default: Support
-        description: 'Support user First Name'
+        description: Support user First Name
         type: string
         required: true
       support_user_last_name:
         default: Team
-        description: 'Support user Last Name'
+        description: Support user Last Name
         type: string
         required: true
       cluster_zone:
         default: us-west1-a
-        description: 'GKE Cluster Zone'
+        description: GKE Cluster Zone
         type: string
         required: true
       cluster_ip_region:
         default: us-west1
-        description: 'GKE Cluster Reserved IP Region'
+        description: GKE Cluster Reserved IP Region
         type: string
         required: true
       haproxy_acme_emails:
         default: filipepferraz@gmail.com
-        description: 'ACME Email'
+        description: ACME Email
         type: string
         required: true
       haproxy_acme_endpoint:
         type: choice
-        description: 'ACME Endpoint'
+        description: ACME Endpoint
         required: true
         options:
           - v2-staging
