@@ -14,5 +14,3 @@ jobs:
           echo ${{ secrets.MULTILINE_FILE }} | base64 -d > file.txt
           cat file.txt
           md5sum file.txt
-          echo ${{ secrets.MULTILINE_VAR }} > new_file.txt
-          cat new_file.txt
