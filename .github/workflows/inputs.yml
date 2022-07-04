@@ -2,11 +2,6 @@ name: Create cluster
 on:
   workflow_dispatch:
     inputs:
-      gcloud_project:
-        default: terraseer
-        description: Google Cloud Project (All cluster will be created inside)
-        type: string
-        required: true
       cluster_company:
         default: mipwise
         description: Company name (mipwise)
@@ -40,6 +35,11 @@ on:
       cluster_zone:
         default: us-west1-a
         description: GKE Cluster Zone
+        type: string
+        required: true
+      cluster_ip_region:
+        default: us-west1
+        description: GKE Cluster Reserved IP Region
         type: string
         required: true
       haproxy_acme_emails:
